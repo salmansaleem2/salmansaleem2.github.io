@@ -1,0 +1,370 @@
+/* background: linear-gradient(-25deg,transparent,hsla(0,0%,100%,.4)); */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  min-height: 100vh;
+  position: relative;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  border-radius: 11px;
+  padding: 0 3.2rem;
+}
+
+/*****************************/
+/* HEADER */
+/*****************************/
+
+.header {
+  padding-top: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+.header .logo {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+.search-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border: 1px solid rgb(213, 210, 210);
+  border-radius: 50px;
+  width: 50rem;
+}
+.search-box input {
+  border: none;
+  margin-right: 0.4rem;
+  width: 100%;
+  font-size: 1.6rem;
+  color: #555;
+}
+.search-box input::-webkit-input-placeholder {
+  color: #888888;
+}
+.search-box input::-moz-placeholder {
+  color: #888888;
+}
+.search-box input:-ms-input-placeholder {
+  color: #888888;
+}
+.search-box input::-ms-input-placeholder {
+  color: #888888;
+}
+.search-box input::placeholder {
+  color: #888888;
+}
+.search-box input:focus {
+  outline: none;
+}
+.search-box .search-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+}
+
+.header .celcius {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 4rem;
+  color: #fff;
+  background-color: #000;
+  padding: 1.6rem;
+  border-radius: 50%;
+}
+
+/*****************************/
+/* Weather Info */
+/*****************************/
+
+.weather-info {
+  text-align: center;
+  padding-left: 12rem;
+  margin-bottom: 9.6rem;
+}
+.weather-info .or {
+  font-size: 1.7rem;
+  margin-bottom: 2.4rem;
+}
+.weather-info button {
+  margin-bottom: 7.6rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 1.6rem;
+  border: 1px solid rgb(213, 210, 210);
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 7.6rem;
+  transition: all 0.3s ease-in;
+  transform: scale(1);
+}
+.weather-info button:hover {
+  margin-bottom: 7.6rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 1.6rem;
+  border: 1px solid rgb(213, 210, 210);
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 7.6rem;
+  transform: scale(1.05);
+}
+.weather-info .city-name {
+  font-size: 5.2rem;
+  line-height: 1.2rem;
+  letter-spacing: -0.1rem;
+  margin-bottom: 2.4rem;
+}
+.weather-info .day-time {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+.weather-info .condition {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+.weather-info .country {
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+.weather-info .weather-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-7rem);
+}
+.weather-info .weather-data .cel {
+  font-size: 3.2rem;
+  line-height: 1.5;
+}
+.weather-info .weather-data .img-box {
+  height: 34rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.weather-info .weather-data .img-box img {
+  align-self: flex-start;
+  overflow: hidden;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+}
+.weather-info .weather-data div .humid {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.weather-info .weather-data div .wind {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.weather-info .weather-container {
+  margin-bottom: 9.6rem;
+}
+.weather-info .weather-container .section-weather-data {
+  display: none;
+}
+
+/*****************************/
+/* Overlay */
+/*****************************/
+
+.overlay {
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/*****************************/
+/* Modal */
+/*****************************/
+
+.modal {
+  display: none;
+}
+.modal.active {
+  z-index: 2;
+  display: block;
+  width: 40rem;
+  padding: 2.4rem;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.modal p {
+  font-size: 2rem;
+  margin-bottom: 2.3rem;
+}
+.modal button {
+  background-color: #fff;
+  border: 2px solid #333;
+  color: #000;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.8;
+  min-width: 14rem;
+  padding: 0 3.2rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.modal button:hover,
+.modal button:active {
+  background-color: #333333;
+  color: #fff;
+}
+
+/*****************************/
+/* Spinner */
+/*****************************/
+.spinner {
+  display: none;
+}
+.spinner.active {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 100px auto;
+  display: block;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-bounce 2s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+/* rem and em do NOT depend on html font size in media queries! Instead, 1rem = 1em = 16px */
+
+/*****************************/
+/* BELOW 944px (Tablets) */
+/*****************************/
+
+@media (max-width: 59em) {
+  .header {
+    display: grid;
+    grid-template-columns: auto 2fr auto;
+    -moz-column-gap: 2.4rem;
+    column-gap: 2.4rem;
+  }
+  .search-box {
+    width: auto;
+  }
+}
+
+/*****************************/
+/* BELOW 544px (Phones) */
+/*****************************/
+@media (max-width: 34em) {
+  .header {
+    -moz-column-gap: 0;
+    column-gap: 0;
+    row-gap: 2rem;
+    padding-left: 3.2rem;
+  }
+  .search-box {
+    width: auto;
+    grid-column: -4 / -1;
+    order: 1;
+  }
+  .header .celcius {
+    margin-left: auto;
+  }
+  .weather-info {
+    padding-left: 3.2rem;
+  }
+  .modal.active {
+    width: 34rem;
+  }
+}
+@media (max-width: 28em) {
+  .weather-info .weather-data {
+    flex-direction: column;
+    transform: translateY(0);
+  }
+  .weather-info .weather-data .img-box {
+    height: 25rem;
+  }
+}
